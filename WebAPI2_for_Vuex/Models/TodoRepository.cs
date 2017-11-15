@@ -9,10 +9,6 @@ namespace WebAPI2_for_Vuex.Models
     {
         private readonly EntityModel db;
 
-        public TodoRepository()
-            : this(new EntityModel())
-        { }
-
         public TodoRepository(EntityModel db)
         {
             this.db = db;
@@ -21,21 +17,29 @@ namespace WebAPI2_for_Vuex.Models
         public void Create(MyTodo entity)
         {
             db.Set<MyTodo>().Add(entity);
+            Save();
         }
 
         public void DelById(int id)
         {
-            throw new NotImplementedException();
+            db.MyTodos.Remove(this.GetById(id));
+            Save();
+        }
+
+        public IQueryable<MyTodo> GetAll()
+        {
+            return db.MyTodos;
         }
 
         public MyTodo GetById(int id)
         {
-            throw new NotImplementedException();
+            return db.MyTodos.Find(id);
         }
 
         public void Upd(MyTodo entity)
         {
-            throw new NotImplementedException();
+            db.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            Save();
         }
 
         public void Save()

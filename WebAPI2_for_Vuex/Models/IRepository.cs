@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace WebAPI2_for_Vuex.Models
 {
-    interface IRepository<T1>
+    public interface IRepository<T1> where T1: class
     {
         void Create(T1 entity);
 
         T1 GetById(int id);
+
+        IQueryable<T1> GetAll();
 
         void Upd(T1 entity);
 

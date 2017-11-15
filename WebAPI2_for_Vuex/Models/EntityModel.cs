@@ -15,24 +15,4 @@ namespace WebAPI2_for_Vuex.Models
 
         public virtual DbSet<MyTodo> MyTodos { get; set; }
     }
-
-    public class MyTodo
-    {
-        [Key]
-        [JsonProperty(PropertyName = "id")]
-        public int Id { get; set; }
-
-        [JsonProperty(PropertyName = "userId")]
-        public int UserId { get; set; }
-
-        [JsonProperty(PropertyName = "title")]
-        public string Title { get; set; }
-
-        [JsonProperty(PropertyName = "project")]
-        public string Project { get; set; }
-
-        [JsonProperty(PropertyName = "completed")]
-        public bool Completed { get; set; }
-
-    }
 }

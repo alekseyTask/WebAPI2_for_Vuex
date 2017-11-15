@@ -24,6 +24,8 @@ namespace WebAPI2_for_Vuex
 
             var cors = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
+
+            App_Start.SimpleInjector.Initialize();
         }
     }
 }
