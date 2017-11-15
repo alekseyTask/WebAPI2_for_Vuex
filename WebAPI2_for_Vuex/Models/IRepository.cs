@@ -14,9 +14,9 @@ namespace WebAPI2_for_Vuex.Models
 
         IQueryable<T1> GetAll();
 
-        void Upd(T1 entity);
+        void Update(T1 entity);
 
-        void DelById(int id);
+        void DeleteById(int id);
 
         void Save();
     }

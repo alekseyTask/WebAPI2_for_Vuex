@@ -30,6 +30,8 @@ namespace WebAPI2_for_Vuex.App_Start
         {
             container.Register<Models.EntityModel, Models.EntityModel>(Lifestyle.Scoped);
             container.Register<Models.IRepository<Models.MyTodo>, Models.TodoRepository>(Lifestyle.Scoped);
+            container.Register<Models.VerificationService<Models.MyTodo>, Models.TodoVerificationService>(Lifestyle.Scoped);
+            container.Register<Models.AUDGService<Models.MyTodo>, Models.AUDGService<Models.MyTodo>>(Lifestyle.Scoped);
         }
     }
 }

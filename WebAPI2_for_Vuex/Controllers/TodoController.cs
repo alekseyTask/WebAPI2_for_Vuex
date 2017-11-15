@@ -10,17 +10,18 @@ namespace WebAPI2_for_Vuex.Controllers
 {
     public class TodoController : ApiController
     {
-        private readonly IRepository<MyTodo> _todoRep;
-        
-        public TodoController(IRepository<MyTodo> todoRep)
+        //private readonly IRepository<MyTodo> _todoRep;
+        private readonly AUDGService<MyTodo> _service;
+
+        public TodoController(AUDGService<MyTodo> service)
         {
-            _todoRep = todoRep;
+            _service = service;
         }
 
         // GET: api/Todoes
         public IQueryable<MyTodo> Get()
         {
-            return _todoRep.GetAll();
+            return _service.GetItems();
         }
 
         // upd
@@ -28,7 +29,7 @@ namespace WebAPI2_for_Vuex.Controllers
         {
             if (!ModelState.IsValid || id != myTodo.Id) return BadRequest(ModelState);
 
-            _todoRep.Upd(myTodo);
+            _service.UpdateItem(myTodo);
 
             return StatusCode(HttpStatusCode.OK);
         }
@@ -38,20 +39,17 @@ namespace WebAPI2_for_Vuex.Controllers
         {
             //if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            _todoRep.Create(myTodo);
+            _service.AddItem(myTodo);
 
             return myTodo;
         }
 
         //del
-        public IHttpActionResult Delete(int? id)
+        public IHttpActionResult Delete(int id)
         {
-
-            if (id == null) return NotFound();
-
             try
             {
-                _todoRep.DelById((int)id);
+                _service.DeleteItem(id);
             }
             catch (Exception e)
             {

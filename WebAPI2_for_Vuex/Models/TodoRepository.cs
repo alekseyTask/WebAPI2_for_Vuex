@@ -20,7 +20,7 @@ namespace WebAPI2_for_Vuex.Models
             Save();
         }
 
-        public void DelById(int id)
+        public void DeleteById(int id)
         {
             db.MyTodos.Remove(this.GetById(id));
             Save();
@@ -36,7 +36,7 @@ namespace WebAPI2_for_Vuex.Models
             return db.MyTodos.Find(id);
         }
 
-        public void Upd(MyTodo entity)
+        public void Update(MyTodo entity)
         {
             db.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             Save();
