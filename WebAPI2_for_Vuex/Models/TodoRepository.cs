@@ -26,7 +26,7 @@ namespace WebAPI2_for_Vuex.Models
             Save();
         }
 
-        public IQueryable<MyTodo> GetAll()
+        public IEnumerable<MyTodo> GetAll()
         {
             return db.MyTodos;
         }

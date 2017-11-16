@@ -12,7 +12,7 @@ namespace WebAPI2_for_Vuex.Models
 
         T1 GetById(int id);
 
-        IQueryable<T1> GetAll();
+        IEnumerable<T1> GetAll();
 
         void Update(T1 entity);
 

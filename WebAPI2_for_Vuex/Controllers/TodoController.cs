@@ -19,7 +19,7 @@ namespace WebAPI2_for_Vuex.Controllers
         }
 
         // GET: api/Todoes
-        public IQueryable<MyTodo> Get()
+        public IEnumerable<MyTodo> Get()
         {
             return _service.GetItems();
         }
