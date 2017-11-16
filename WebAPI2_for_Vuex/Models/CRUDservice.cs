@@ -16,7 +16,7 @@ namespace WebAPI2_for_Vuex.Models
             _verificationService = verificationService;
         }
 
-        public IQueryable<T1> GetItems()
+        public IEnumerable<T1> GetItems()
         {
             return _repository.GetAll();
         }
