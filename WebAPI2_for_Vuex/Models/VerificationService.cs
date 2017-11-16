@@ -12,7 +12,7 @@ namespace WebAPI2_for_Vuex.Models
 
         public abstract bool Verification(T1 model);
 
-        protected bool checkRenge(int x, int min, int max)
+        protected bool checkRange(int x, int min, int max)
         {
             return (x >= min) && (x <= max);
         }

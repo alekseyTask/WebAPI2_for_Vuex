@@ -5,12 +5,12 @@ using System.Web;
 
 namespace WebAPI2_for_Vuex.Models
 {
-    public class AUDGService<T1> where T1: class
+    public class CRUDservice<T1> where T1: class
     {
         private readonly IRepository<T1> _repository;
         private readonly VerificationService<T1> _verificationService;
 
-        public AUDGService(IRepository<T1> repository, VerificationService<T1> verificationService)
+        public CRUDservice(IRepository<T1> repository, VerificationService<T1> verificationService)
         {
             _repository = repository;
             _verificationService = verificationService;

@@ -113,7 +113,7 @@
     </Compile>
     <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\IRepository.cs" />
-    <Compile Include="Models\AUDGService.cs" />
+    <Compile Include="Models\CRUDservice.cs" />
     <Compile Include="Models\VerificationService.cs" />
     <Compile Include="Models\MyTodo.cs" />
     <Compile Include="Models\TodoRepository.cs" />

@@ -11,9 +11,9 @@ namespace WebAPI2_for_Vuex.Controllers
     public class TodoController : ApiController
     {
         //private readonly IRepository<MyTodo> _todoRep;
-        private readonly AUDGService<MyTodo> _service;
+        private readonly CRUDservice<MyTodo> _service;
 
-        public TodoController(AUDGService<MyTodo> service)
+        public TodoController(CRUDservice<MyTodo> service)
         {
             _service = service;
         }

@@ -32,21 +32,21 @@ namespace WebAPI2_for_Vuex.Models
 
         protected virtual bool checkId()
         {
-            return checkRenge(model.Id, _minId, _maxId);
+            return checkRange(model.Id, _minId, _maxId);
         }
 
         protected virtual bool checkTitle()
         {
             var lngth = model.Title.Length;
 
-            return checkRenge(lngth, _minTitle, _maxTitle);
+            return checkRange(lngth, _minTitle, _maxTitle);
         }
 
         protected virtual bool checkProject()
         {
             var lngth = model.Project.Length;
 
-            return checkRenge(lngth, _minProject, _maxProject);
+            return checkRange(lngth, _minProject, _maxProject);
         }
     }
 }
