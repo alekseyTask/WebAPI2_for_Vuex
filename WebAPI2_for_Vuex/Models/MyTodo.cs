@@ -18,7 +18,7 @@ namespace WebAPI2_for_Vuex.Models
 
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
-
+        [Required]
         [JsonProperty(PropertyName = "project")]
         public string Project { get; set; }
 
