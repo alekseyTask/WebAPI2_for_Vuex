@@ -15,23 +15,13 @@ namespace WebAPI2_for_Vuex
         {
             HttpConfiguration config = new HttpConfiguration();
 
-            //// Web API configuration and services
+            configRoute(config);
 
-            // Web API routes
-            config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-
-            var cors = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            configCors(config);
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-            var container=InitializeInjector(config);
+            var container = initializeInjector(config);
 
             app.UseWebApi(config);
 
@@ -44,7 +34,24 @@ namespace WebAPI2_for_Vuex
             });
         }
 
-        private static Container InitializeInjector(HttpConfiguration config)
+        private static void configCors(HttpConfiguration config)
+        {
+            var cors = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+        }
+
+        private static void configRoute(HttpConfiguration config)
+        {
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+        }
+        
+        private static Container initializeInjector(HttpConfiguration config)
         {
             var container = new Container();
 
